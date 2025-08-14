@@ -294,12 +294,6 @@ async function downloadLibrairies(resolvedVersion) {
     dispatcher: agent,
   });
 
-  // Since the current `installTask.total` is currently broken, we need to use this thing...
-  const totalLibrairiesSize = resolvedVersion.libraries.reduce(
-    (sum, lib) => sum + (lib.download?.size || 0),
-    0
-  );
-
   setMessage("Vérification des librairies...");
   setProgress(0);
 
@@ -307,8 +301,8 @@ async function downloadLibrairies(resolvedVersion) {
     onUpdate(task, chunkSize) {
       if (chunkSize > 0) {
         const percent = Math.round(
-          (installTask.progress / totalLibrairiesSize) * 100
-        ); // Waiting for the lib to be fixed...
+          (installTask.progress / installTask.total) * 100
+        );
 
         setMessage(`Téléchargement des librairies en cours... (${percent}%)`);
         setProgress(percent);
@@ -326,10 +320,6 @@ async function downloadAssets(resolvedVersion) {
     dispatcher: agent,
   });
 
-  // Since the current `installTask.total` is currently broken, we need to use this thing...
-  const { totalSize, size } = resolvedVersion.assetIndex;
-  const totalAssetsSize = totalSize + size;
-
   setMessage("Vérification des assets...");
   setProgress(0);
 
@@ -337,8 +327,8 @@ async function downloadAssets(resolvedVersion) {
     onUpdate(task, chunkSize) {
       if (chunkSize > 0) {
         const percent = Math.round(
-          (installTask.progress / totalAssetsSize) * 100
-        ); // Waiting for the lib to be fixed...
+          (installTask.progress / installTask.total) * 100
+        );
 
         setMessage(`Téléchargement des assets en cours... (${percent}%)`);
         setProgress(percent);
@@ -372,8 +362,7 @@ async function launchGame(args, options) {
     ignorePatchDiscrepancies: true,
     minMemory: 128,
     maxMemory: (parseInt(options?.ram, 10) || 2) * 1024,
-    // Change it later to minMemory & maxMemory.
-    // extraJVMArgs: ["-Xms128M", `-Xmx${options?.ram ?? "2048M"}`],
+    extraJVMArgs: ["-XX:+DisableAttachMechanism"],
   });
 
   setProgress(100);
