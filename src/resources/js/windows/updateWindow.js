@@ -33,6 +33,7 @@ function createWindow() {
     frame: false,
     show: false,
     transparent: true,
+    roundedCorners: true,
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
