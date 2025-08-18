@@ -362,7 +362,12 @@ async function launchGame(args, options) {
     ignorePatchDiscrepancies: true,
     minMemory: 128,
     maxMemory: (parseInt(options?.ram, 10) || 2) * 1024,
-    extraJVMArgs: ["-XX:+DisableAttachMechanism"],
+    extraJVMArgs: [
+      "-XX:+UseG1GC",
+      "-XX:MaxGCPauseMillis=10",
+      "-XX:G1HeapRegionSize=32m",
+      "-XX:+DisableAttachMechanism",
+    ],
   });
 
   setProgress(100);
