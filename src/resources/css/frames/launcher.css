@@ -153,6 +153,9 @@ body {
   font-size: 23px;
   font-family: "LemonMilk-Pro";
   -webkit-text-security: none;
+  max-width: 350px;
+  margin: 0 auto;
+  display: block;
 }
 
 .username input.disabled,
