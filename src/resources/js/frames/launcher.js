@@ -340,14 +340,14 @@ async function downloadAssets(resolvedVersion) {
   setProgress(100);
 }
 
-let gameProcess;
+// let gameProcess;
 
 async function launchGame(args, options) {
   setMessage("Lancement du jeu...");
 
   setProgress(0);
 
-  gameProcess = await launch({
+  await launch({
     gamePath: args.gamePath,
     javaPath: args.javaPath,
     version: args.version,
@@ -375,7 +375,9 @@ async function launchGame(args, options) {
   setProgress(100);
   disableFields(false);
 
-  ipcRenderer.send("hide-options");
+  ipcRenderer.send("main-window-close");
+
+  /* ipcRenderer.send("hide-options");
   ipcRenderer.send("main-window-hide");
 
   gameProcess.on("exit", () => {
@@ -383,9 +385,9 @@ async function launchGame(args, options) {
     setProgress(0);
 
     ipcRenderer.send("main-window-show");
-  });
+  }); */
 
-  gameProcess.unref();
+  // gameProcess.unref();
 }
 /* Workers */
 
