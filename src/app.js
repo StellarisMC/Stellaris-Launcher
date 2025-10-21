@@ -53,6 +53,9 @@ ipcMain.on("main-window-dev-tools-close", () =>
 ipcMain.on("main-window-open", () => openMainWindow());
 ipcMain.on("main-window-close", () => MainWindow.destroyWindow());
 
+ipcMain.on("main-window-show", () => MainWindow.getWindow().show());
+ipcMain.on("main-window-hide", () => MainWindow.getWindow().hide());
+
 ipcMain.on("update-window-close", () => UpdateWindow.destroyWindow());
 /* Listeners */
 
