@@ -27,16 +27,16 @@ function createWindow() {
   const iconExtension = os.platform() === "win32" ? "ico" : "png";
 
   mainWindow = new BrowserWindow({
-    title: "Plutonia - Launcher",
-    width: 761,
-    height: 824,
+    title: "Stellaris - Launcher",
+    width: 450,
+    height: 500,
     resizable: false,
     useContentSize: true,
     icon: "./src/resources/images/icons/icon." + iconExtension,
     frame: false,
     show: false,
-    roundedCorners: false,
-    transparent: true,
+    roundedCorners: true,
+    transparent: false,
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
@@ -47,7 +47,7 @@ function createWindow() {
 
   mainWindow.setMenuBarVisibility(false);
 
-  mainWindow.setBounds({ x: 0, y: 0, width: 761, height: 824 });
+  mainWindow.setBounds({ x: 0, y: 0, width: 450, height: 500 });
   mainWindow.center();
 
   mainWindow.loadFile(
@@ -71,6 +71,18 @@ function createWindow() {
     TfaWindow.destroyWindow();
     OptionWindow.destroyWindow();
   });
+}
+
+function minimizeWindow() {
+  if (mainWindow) {
+    mainWindow.minimize();
+  }
+}
+
+function closeWindow() {
+  if (mainWindow) {
+    mainWindow.close();
+  }
 }
 
 /* TFA */
@@ -109,5 +121,13 @@ ipcMain.on("show-options", () => {
 
 ipcMain.on("hide-options", () => OptionWindow.hideWindow());
 /* Options */
+
+ipcMain.on("main-window-close", () => {
+  closeWindow();
+});
+
+ipcMain.on("main-window-minimize", () => {
+  minimizeWindow();
+});
 
 module.exports = { getWindow, createWindow, destroyWindow };

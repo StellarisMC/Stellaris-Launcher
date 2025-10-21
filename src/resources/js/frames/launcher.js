@@ -35,6 +35,7 @@ const { launch, Version } = require("@xmcl/core");
 
 /* HTML Fields */
 const closeButton = document.querySelector(".close");
+const reduceButton = document.querySelector(".reduce");
 
 const username = document.querySelector(".username input");
 const password = document.querySelector(".password input");
@@ -57,13 +58,17 @@ closeButton.addEventListener("click", async (_) =>
   ipcRenderer.send("main-window-close")
 );
 
+reduceButton.addEventListener("click", () => {
+  ipcRenderer.send("main-window-minimize");
+});
+
 settingsButton.addEventListener("click", async (_) => {
   ipcRenderer.send("show-options");
 });
 
 registerField.addEventListener("click", async (_) => {
   window.open(
-    "https://plutonia-mc.fr/user/register",
+    "https://stellarismc.fr/user/register",
     "RegisterWindow",
     "width=700,height=600"
   );
@@ -243,7 +248,7 @@ async function downloadJava(gamePath) {
 
 async function getLatestVersion(prerelease) {
   const versions = await getVersionList({
-    remote: "https://versions.plutonia.download/manifest.json",
+    remote: "https://versions.stellarismc.fr/manifest.json",
   });
 
   const latestVersion = versions.versions.find((v) => {
@@ -316,7 +321,7 @@ async function downloadLibrairies(resolvedVersion) {
 
 async function downloadAssets(resolvedVersion) {
   const installTask = installAssetsTask(resolvedVersion, {
-    assetsHost: "https://versions.plutonia.download/assets/objects",
+    assetsHost: "https://versions.stellarismc.fr/assets/objects",
     dispatcher: agent,
   });
 
