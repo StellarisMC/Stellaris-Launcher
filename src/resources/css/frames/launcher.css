@@ -3,7 +3,7 @@
 body {
   font-family: "LemonMilk-Pro", sans-serif;
   width: 450px;
-  height: 500px;
+  height: 550px;
   background-color: #333333;
   background-size: cover;
   margin: 0;
@@ -20,7 +20,7 @@ body {
 
 .progress {
   position: absolute;
-  top: 460px;
+  top: 500px;
   left: 37px;
   width: 0px;
   height: 28px;
@@ -34,7 +34,7 @@ body {
 
 .empty-progress {
   position: absolute;
-  top: 460px;
+  top: 500px;
   left: 37px;
   width: 375px;
   height: 28px;
@@ -49,7 +49,7 @@ body {
 
 .progress-text {
   position: absolute;
-  top: 460px;
+  top: 500px;
   width: 449px;
   height: 28px;
   display: flex;
