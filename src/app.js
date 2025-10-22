@@ -1,6 +1,9 @@
 "use strict";
 
 const { app, ipcMain } = require("electron");
+
+app.commandLine.appendSwitch("disable-gpu");
+
 const { autoUpdater } = require("electron-updater");
 
 const os = require("os");

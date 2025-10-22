@@ -491,7 +491,7 @@ async function getGamePath() {
 }
 
 function setProgress(percentage) {
-  const maxWidth = 447;
+  const maxWidth = 375;
   const progressBarWidth = (percentage / 100) * maxWidth;
 
   progressBar.style.width = progressBarWidth + "px";
