@@ -29,7 +29,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     title: "Stellaris - Launcher",
     width: 450,
-    height: 550,
+    height: 650,
     resizable: false,
     useContentSize: true,
     icon: "./src/resources/images/icons/icon." + iconExtension,
@@ -47,7 +47,7 @@ function createWindow() {
 
   mainWindow.setMenuBarVisibility(false);
 
-  mainWindow.setBounds({ x: 0, y: 0, width: 450, height: 550 });
+  mainWindow.setBounds({ x: 0, y: 0, width: 450, height: 650 });
   mainWindow.center();
 
   mainWindow.loadFile(

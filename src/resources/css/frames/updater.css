@@ -22,8 +22,8 @@ body {
   top: 180px;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   transition: opacity 0.3s, top 1.5s;
   opacity: 0;
 }

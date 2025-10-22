@@ -1,9 +1,10 @@
 @import url("../font.css");
+
 /* Style de la page principale */
 body {
   font-family: "LemonMilk-Pro", sans-serif;
   width: 450px;
-  height: 550px;
+  height: 650px;
   background-color: #333333;
   background-size: cover;
   margin: 0;
@@ -16,11 +17,9 @@ body {
   overflow: hidden;
 }
 
-/* Style de la barre de progression, et du texte */
-
 .progress {
   position: absolute;
-  top: 500px;
+  top: 600px;
   left: 37px;
   width: 0px;
   height: 28px;
@@ -34,7 +33,7 @@ body {
 
 .empty-progress {
   position: absolute;
-  top: 500px;
+  top: 600px;
   left: 37px;
   width: 375px;
   height: 28px;
@@ -49,7 +48,7 @@ body {
 
 .progress-text {
   position: absolute;
-  top: 500px;
+  top: 600px;
   width: 449px;
   height: 28px;
   display: flex;
@@ -63,7 +62,7 @@ body {
 /* Style du texte */
 .register {
   position: absolute;
-  top: 425px;
+  top: 525px;
   text-align: center;
   color: #ffffff;
   font-size: 14px;
@@ -137,10 +136,15 @@ body {
   background-color: #ffffff;
 }
 
+.splash-logo {
+  position: absolute;
+  top: 10px;
+}
+
 /* Style du bouton de connexion */
 .play {
   position: absolute;
-  top: 350px;
+  top: 450px;
   width: 260px;
   height: 60px;
   cursor: pointer;
@@ -175,7 +179,7 @@ body {
 /* Style du bouton des options */
 .settings {
   position: absolute;
-  top: 355px;
+  top: 455px;
   left: 370px;
   width: 50px;
   height: 50px;
@@ -237,12 +241,12 @@ body {
 
 /* Position de la zone de texte "Nom d'utilisateur" */
 .username {
-  top: 100px;
+  top: 250px;
 }
 
 /* Position de la zone de texte "Mot de passe" */
 .password {
-  top: 180px;
+  top: 330px;
 }
 
 /* Activer ou désactiver la possibilitée de drag */
