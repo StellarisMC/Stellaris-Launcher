@@ -1,6 +1,6 @@
 {
-  "name": "Stellaris",
-  "version": "1.0.1",
+  "name": "StellarisMC",
+  "version": "1.0.2",
   "description": "A powerful launcher for Stellaris, built with Electron and JavaScript.",
   "author": "Stellaris Team",
   "main": "src/app.js",
