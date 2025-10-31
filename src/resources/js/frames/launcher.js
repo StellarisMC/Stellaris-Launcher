@@ -50,7 +50,6 @@ const progressBarText = document.querySelector(".progress-text");
 
 /* Registering listeners */
 window.addEventListener("load", async () => {
-  await convertCredentials();
   await loadCredentials();
 });
 
@@ -426,58 +425,6 @@ function saveCredentials() {
   ipcRenderer.send("save-to-file", CREDENTIALS_FILE_NAME, datas);
 }
 /* Save Credentials to File */
-
-/* Convert old credentials */
-async function convertCredentials() {
-  const credentialsFile = path.join(
-    await ipcRenderer.invoke("appData"),
-    "credentials.yml"
-  );
-
-  if (!fs.existsSync(credentialsFile)) {
-    return;
-  }
-
-  fs.readFile(credentialsFile, "utf8", (error, fileContent) => {
-    if (error) {
-      console.error("Erreur lors de la lecture du fichier: ", error);
-    }
-
-    console.log(fileContent);
-
-    const lines = fileContent.split("\n");
-
-    let user, pass;
-
-    for (const line of lines) {
-      if (line.startsWith("username=")) {
-        user = line.split("=")[1].trim();
-      } else if (line.startsWith("password=")) {
-        pass = line.split("=")[1].trim();
-      }
-    }
-
-    if (user && pass) {
-      username.value = user;
-      password.value = pass;
-
-      saveCredentials();
-
-      fs.unlink(credentialsFile, (unlinkErr) => {
-        if (unlinkErr) {
-          console.error(
-            "Erreur lors de la suppression du fichier: ",
-            unlinkErr
-          );
-          return;
-        }
-
-        console.log("Fichier credentials.yml supprimé avec succès.");
-      });
-    }
-  });
-}
-/* Convert old credentials */
 
 /* Utils */
 async function getOptions() {

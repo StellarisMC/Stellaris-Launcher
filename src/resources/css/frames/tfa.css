@@ -47,5 +47,5 @@ body {
 input:focus,
 select:focus,
 button:focus {
-  outline: 2px solid rgb(128, 0, 163);
+  outline: 2px solid #42375a;
 }

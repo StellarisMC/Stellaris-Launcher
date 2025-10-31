@@ -1,6 +1,6 @@
 {
   "name": "StellarisMC",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A powerful launcher for Stellaris, built with Electron and JavaScript.",
   "author": "Stellaris Team",
   "main": "src/app.js",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "cross-env": "^10.1.0",
-    "electron": "^38.3.0",
+    "electron": "^39.0.0",
     "electron-builder": "^26.0.12",
     "javascript-obfuscator": "^4.1.1",
     "nodemon": "^3.1.10"
